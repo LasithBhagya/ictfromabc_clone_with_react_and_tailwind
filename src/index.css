@@ -1,13 +1,102 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+:root {
+    --dark0: #000;
+    --dark1: #111;
+    --dark1t: #111111fd;
+    --dark1x: #121212;
+    --dark2: #222;
+    --dark2x: #2a2a2a;
+    --dark3: #333;
+    --dark4: #444;
+    --dark5: #555;
+    --light1: #fff;
+    --light2: #eee;
+    --light3: #ddd;
+    --light4: #ccc;
+    --light5: #bbb;
+    --light6: #aaa;
+    --light7: #888;
+    --red1: #f00;
+    --red1x: #a00;
+    --red2: #5c0000;
+    --red2x: #450000;
+    --red3: #161111;
+    --green1: #0f0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+#root {
+    background-image: linear-gradient(to top, var(--red2), var(--red3));
+    padding: 8px;
+    background-size: cover;
+    box-sizing: border-box;
+    height: 100vh;
+    z-index: 0;
+}
+
+.sl-element::before {
+    background-image: linear-gradient(transparent 0%, rgba(255, 255, 255, 0.1) 30%,rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.1) 70%, transparent 100%);
+    transform: translate(-90%, 0%) rotate(120deg);
+}
+.sl-element:hover:before, .sl-element:focus::before {
+    transform: translate(40%, 0%) rotate(120deg);
+    transition: 400ms ease-in;
+}
+#pastpaper-collection:hover,
+#pastpaper-collection:focus {
+    color: var(--light2);
+    background-color: var(--red2);
+    text-shadow: 0 0 8px var(--light3);
+    border-color: var(--red1x);
+}
+
+.form-holder::before, .form-holder::after {
+    translate: -50% -50%;
+    background-image: conic-gradient(from var(--angle), var(--red1) 0%, var(--red2x) 25%, var(--red2x) 75%, var(--red1) 100%);
+    animation: 4s spin linear infinite;
+}
+
+.login-content-holder > .login-content > .form-holder > .form > input {
+    width: auto;
+    padding: 0.5em 1em 0.5em 1em;
+    margin-bottom: 2vh;
+    font-size: 2.4vh;
+    border-radius: 4px;
+    border: none;
+    color: var(--light2);
+    background-color: var(--dark0);
+}
+.login-content-holder > .login-content > .form-holder > .form > input:focus {
+    background-color: var(--dark1x);
+}
+
+::-webkit-input-placeholder {
+    font-family: Fredoka;
+    font-size: 2vh;
+    color: var(--light6);
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
 }
